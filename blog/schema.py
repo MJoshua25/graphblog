@@ -175,6 +175,7 @@ class DeleteUserMutation(DjangoDeleteMutation):
 class UpdateUserMutation(DjangoUpdateMutation):
     class Meta:
         model = models.User
+        optional_fields = ("last_name", "first_name", "username", "password", 'email')
 
 
 class Query(graphene.ObjectType):
