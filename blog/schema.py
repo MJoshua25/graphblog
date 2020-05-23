@@ -10,6 +10,7 @@ from . import models
 from django.contrib.auth.models import User
 
 
+
 class ExtendConnection(Connection):
     class Meta:
         abstract = True
@@ -38,13 +39,13 @@ class CategorieNode(DjangoObjectType):
         connection_class = ExtendConnection
 
 
-class ProfileNode(DjangoObjectType):
+class UserNode(DjangoObjectType):
     class Meta:
-        model = models.Profile
+        model = models.User
         # Allow for some more advanced filtering here
         fields = "__all__"
         filter_fields = {
-            'pays': ['exact'],
+            'first_name': ['exact'],
             'bio': ['exact', 'icontains', 'istartswith'],
             'status': ['exact'],
         }
