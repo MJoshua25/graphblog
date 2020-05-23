@@ -6,7 +6,7 @@ from django_filters import FilterSet, OrderingFilter
 import graphene
 from graphql_jwt.decorators import login_required
 
-from tv import models
+from . import models
 from django.contrib.auth.models import User
 
 
@@ -22,6 +22,7 @@ class ExtendConnection(Connection):
 
     def resolve_edge_count(root, info, **kwargs):
         return len(root.edges)
+
 
 class CategorieNode(DjangoObjectType):
     class Meta:
