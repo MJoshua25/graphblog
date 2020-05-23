@@ -96,3 +96,20 @@ class CommentaireNode(DjangoObjectType):
         }
         interfaces = (relay.Node,)
         connection_class = ExtendConnection
+
+
+class Query(graphene.ObjectType):
+    Categorie = relay.Node.Field(CategorieNode)
+    all_Categories = DjangoFilterConnectionField(CategorieNode)
+
+    User = relay.Node.Field(UserNode)
+    all_users = DjangoFilterConnectionField(UserNode)
+
+    Tag = relay.Node.Field(TagNode)
+    all_tags = DjangoFilterConnectionField(TagNode)
+
+    Article = relay.Node.Field(ArticleNode)
+    all_articles = DjangoFilterConnectionField(ArticleNode)
+
+    Commentaire = relay.Node.Field(CommentaireNode)
+    all_commentaires = DjangoFilterConnectionField(CommentaireNode)
