@@ -50,6 +50,9 @@ INSTALLED_APPS = [
     'graphene_django',
     'graphene_django_cud',
     'graphene_file_upload',
+
+    # APP
+    'blog.apps.BlogConfig'
 ]
 
 MIDDLEWARE = [
