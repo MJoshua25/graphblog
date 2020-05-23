@@ -57,9 +57,7 @@ class CommentaireAdmin(admin.ModelAdmin):
     list_display = (
         'article',
         'message',
-        'nom',
-        'email',
-        'prenom',
+        'user',
         'status',
         'date_add',
         'date_update'
@@ -79,9 +77,7 @@ class CommentaireAdmin(admin.ModelAdmin):
 
             'article',
             'message',
-            'nom',
-            'email',
-            'prenom',
+            'user',
         ]
         }),
         ('Status et Activations', {'fields': ['status', ]}),
