@@ -2,6 +2,7 @@ from graphene import relay, ObjectType
 from graphene_django import DjangoObjectType
 from graphene_django.filter import DjangoFilterConnectionField
 from graphene import Connection
+from graphene_django_cud.mutations import DjangoCreateMutation, DjangoBatchCreateMutation, DjangoPatchMutation, DjangoUpdateMutation, DjangoDeleteMutation, DjangoBatchDeleteMutation
 from django_filters import FilterSet, OrderingFilter
 import graphene
 from graphql_jwt.decorators import login_required
@@ -96,6 +97,8 @@ class CommentaireNode(DjangoObjectType):
         }
         interfaces = (relay.Node,)
         connection_class = ExtendConnection
+
+
 
 
 class Query(graphene.ObjectType):
