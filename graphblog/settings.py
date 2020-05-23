@@ -97,6 +97,13 @@ DATABASES = {
     }
 }
 
+GRAPHENE = {
+    'SCHEMA': 'graphblog.schema.schema',
+    'MIDDLEWARE': [
+        'graphql_jwt.middleware.JSONWebTokenMiddleware',
+    ],
+}
+
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
