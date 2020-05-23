@@ -192,3 +192,22 @@ class Query(graphene.ObjectType):
 
     Commentaire = relay.Node.Field(CommentaireNode)
     all_commentaires = DjangoFilterConnectionField(CommentaireNode)
+
+
+class Mutation(ObjectType):
+    create_user = CreateUserMutation.Field()
+    # create = CreateUser.Field()
+    update_user = UpdateUserMutation.Field()
+    delete_user = DeleteUserMutation.Field()
+
+    create_categorie = CreateCategorieMutation.Field()
+    create_tague = CreateTagueMutation.Field()
+    create_vue = CreateVueMutation.Field()
+
+    ## Commentaires
+    create_commentaire = CreateCommentaireMutation.Field()
+    update_commentaire = UpdateCommentaireMutation.Field()
+
+    ## ResponseCommentaire
+    create_responsecommentaire = CreateResponseCommentaireMutation.Field()
+    update_responsecommentaire = UpdateResponseCommentaireMutation.Field()
