@@ -98,7 +98,53 @@ class CommentaireNode(DjangoObjectType):
         interfaces = (relay.Node,)
         connection_class = ExtendConnection
 
+## Profile
+class CreateProfileMutation(DjangoCreateMutation):
+    class Meta:
+        model = models.Profile
+        # foreign_key_extras = {"user": {"type": "CreateUserInput"}}
 
+class UpdateProfileMutation(DjangoUpdateMutation):
+    class Meta:
+        model = models.Profile
+
+
+## Categorie
+class CreateCategorieMutation(DjangoCreateMutation):
+    class Meta:
+        model = models.Categorie
+
+
+## Tague
+class CreateTagueMutation(DjangoCreateMutation):
+    class Meta:
+        model = models.Tague
+
+
+## Commentaire
+class CreateCommentaireMutation(DjangoCreateMutation):
+    class Meta:
+        model = models.Commentaire
+        auto_context_fields = {
+            'user': 'user'
+        }
+        only_fields = ("video", "message")
+
+
+class UpdateCommentaireMutation(DjangoUpdateMutation):
+    class Meta:
+        model = models.Commentaire
+        only_fields = ("status")
+
+
+## ResponseCommentaire
+class CreateResponseCommentaireMutation(DjangoCreateMutation):
+    class Meta:
+        model = models.ResponseCommentaire
+        auto_context_fields = {
+            'user': 'user'
+        }
+        only_fields = ("message", 'comment')
 
 
 class Query(graphene.ObjectType):
