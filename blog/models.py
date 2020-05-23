@@ -11,6 +11,8 @@ from django.db.models.query import QuerySet
 
 class Tag(models.Model):
     titre = models.CharField(max_length=255, unique=True)
+    titre_slug = models.SlugField(editable=False, null=True, max_length=255)
+
 
     status = models.BooleanField(default=True)
     date_add = models.DateTimeField(auto_now_add=True)

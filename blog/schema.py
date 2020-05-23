@@ -65,3 +65,33 @@ class TagNode(DjangoObjectType):
         }
         interfaces = (relay.Node,)
         connection_class = ExtendConnection
+
+
+class ArticleNode(DjangoObjectType):
+    class Meta:
+        model = models.Article
+        # Allow for some more advanced filtering here
+        fields = "__all__"
+        filter_fields = {
+            'tags': ['exact'],
+            'titre': ['exact', 'icontains', 'istartswith'],
+            'titre_slug': ['exact', 'icontains', 'istartswith'],
+            'status': ['exact'],
+            'categorie': ['exact'],
+        }
+        interfaces = (relay.Node,)
+        connection_class = ExtendConnection
+
+
+class TagNode(DjangoObjectType):
+    class Meta:
+        model = models.Tag
+        # Allow for some more advanced filtering here
+        fields = "__all__"
+        filter_fields = {
+            'titre': ['exact', 'icontains', 'istartswith'],
+            'titre_slug': ['exact', 'icontains', 'istartswith'],
+            'status': ['exact'],
+        }
+        interfaces = (relay.Node,)
+        connection_class = ExtendConnection
