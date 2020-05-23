@@ -31,7 +31,7 @@ class CategorieNode(DjangoObjectType):
         # Allow for some more advanced filtering here
         fields = "__all__"
         filter_fields = {
-            'nom': ['exact', 'icontains', 'istartswith'],
+            'titre': ['exact', 'icontains', 'istartswith'],
             'titre_slug': ['exact', 'icontains', 'istartswith'],
             'status': ['exact'],
         }
@@ -59,7 +59,8 @@ class TagNode(DjangoObjectType):
         # Allow for some more advanced filtering here
         fields = "__all__"
         filter_fields = {
-            'nom': ['exact', 'icontains', 'istartswith'],
+            'titre': ['exact', 'icontains', 'istartswith'],
+            'titre_slug': ['exact', 'icontains', 'istartswith'],
             'status': ['exact'],
         }
         interfaces = (relay.Node,)
