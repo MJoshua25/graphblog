@@ -117,9 +117,14 @@ class CreateCategorieMutation(DjangoCreateMutation):
 
 
 ## Tague
-class CreateTagueMutation(DjangoCreateMutation):
+class CreateTagMutation(DjangoCreateMutation):
     class Meta:
-        model = models.Tague
+        model = models.Tag
+
+
+class UpdateTagMutation(DjangoUpdateMutation):
+    class Meta:
+        model = models.Tag
 
 
 ## Commentaire
