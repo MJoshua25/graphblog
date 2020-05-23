@@ -138,6 +138,7 @@ class UpdateTagMutation(DjangoUpdateMutation):
     class Meta:
         model = models.Tag
 
+
 class DeleteTagMutation(DjangoDeleteMutation):
     class Meta:
         model = models.Tag
