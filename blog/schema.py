@@ -166,9 +166,11 @@ class CreateUserMutation(DjangoCreateMutation):
     def handle_password(cls, value, name, info) -> str:
         return make_password(value)
 
-class DeleteCommentaireMutation(DjangoDeleteMutation):
+
+class DeleteUserMutation(DjangoDeleteMutation):
     class Meta:
         model = models.Commentaire
+
 
 class Query(graphene.ObjectType):
     Categorie = relay.Node.Field(CategorieNode)
