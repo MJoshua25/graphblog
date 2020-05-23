@@ -214,7 +214,4 @@ class Mutation(ObjectType):
     ## Commentaires
     create_commentaire = CreateCommentaireMutation.Field()
     update_commentaire = UpdateCommentaireMutation.Field()
-
-    ## ResponseCommentaire
-    create_responsecommentaire = CreateResponseCommentaireMutation.Field()
-    update_responsecommentaire = UpdateResponseCommentaireMutation.Field()
+    delete_commentaire = UpdateCommentaireMutation.Field()
