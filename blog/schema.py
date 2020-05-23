@@ -169,7 +169,12 @@ class CreateUserMutation(DjangoCreateMutation):
 
 class DeleteUserMutation(DjangoDeleteMutation):
     class Meta:
-        model = models.Commentaire
+        model = models.User
+
+
+class UpdateUserMutation(DjangoUpdateMutation):
+    class Meta:
+        model = models.User
 
 
 class Query(graphene.ObjectType):
