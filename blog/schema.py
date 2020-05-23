@@ -3,14 +3,14 @@ from django.contrib.auth.hashers import make_password
 from graphene_django import DjangoObjectType
 from graphene_django.filter import DjangoFilterConnectionField
 from graphene import Connection
-from graphene_django_cud.mutations import DjangoCreateMutation, DjangoBatchCreateMutation, DjangoPatchMutation, DjangoUpdateMutation, DjangoDeleteMutation, DjangoBatchDeleteMutation
+from graphene_django_cud.mutations import DjangoCreateMutation, DjangoBatchCreateMutation, DjangoPatchMutation, \
+    DjangoUpdateMutation, DjangoDeleteMutation, DjangoBatchDeleteMutation
 from django_filters import FilterSet, OrderingFilter
 import graphene
 from graphql_jwt.decorators import login_required
 
 from . import models
 from django.contrib.auth.models import User
-
 
 
 class ExtendConnection(Connection):
@@ -99,11 +99,13 @@ class CommentaireNode(DjangoObjectType):
         interfaces = (relay.Node,)
         connection_class = ExtendConnection
 
+
 ## Profile
 class CreateProfileMutation(DjangoCreateMutation):
     class Meta:
         model = models.Profile
         # foreign_key_extras = {"user": {"type": "CreateUserInput"}}
+
 
 class UpdateProfileMutation(DjangoUpdateMutation):
     class Meta:
@@ -112,6 +114,11 @@ class UpdateProfileMutation(DjangoUpdateMutation):
 
 ## Categorie
 class CreateCategorieMutation(DjangoCreateMutation):
+    class Meta:
+        model = models.Categorie
+
+
+class UpdateCategorieMutation(DjangoUpdateMutation):
     class Meta:
         model = models.Categorie
 
