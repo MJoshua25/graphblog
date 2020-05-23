@@ -26,6 +26,8 @@ class Tag(models.Model):
 
 class Categorie(models.Model):
     titre = models.CharField(max_length=255, unique=True)
+    titre_slug = models.SlugField(editable=False, null=True, max_length=255)
+
 
     status = models.BooleanField(default=True)
     date_add = models.DateTimeField(auto_now_add=True)
@@ -45,6 +47,12 @@ class Categorie(models.Model):
     @property
     def countArticles(self):
         return self.getArticles.count()
+
+    def save(self, *args, **kwargs):
+        super(Categorie, self).save(*args, **kwargs)
+        encoding_id = hashlib.md5(str(self.id).encode())
+        self.titre_slug = slugify(str(self.titre) + ' ' + str(encoding_id.hexdigest()))
+        super(Categorie, self).save(*args, **kwargs)
 
 
 class Article(models.Model):
