@@ -53,9 +53,9 @@ class UserNode(DjangoObjectType):
         connection_class = ExtendConnection
 
 
-class TagueNode(DjangoObjectType):
+class TagNode(DjangoObjectType):
     class Meta:
-        model = models.Tague
+        model = models.Tag
         # Allow for some more advanced filtering here
         fields = "__all__"
         filter_fields = {
