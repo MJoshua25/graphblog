@@ -100,16 +100,7 @@ class CommentaireNode(DjangoObjectType):
         connection_class = ExtendConnection
 
 
-## Profile
-class CreateProfileMutation(DjangoCreateMutation):
-    class Meta:
-        model = models.Profile
-        # foreign_key_extras = {"user": {"type": "CreateUserInput"}}
-
-
-class UpdateProfileMutation(DjangoUpdateMutation):
-    class Meta:
-        model = models.Profile
+## MUTATIONS
 
 
 ## Categorie
@@ -128,7 +119,7 @@ class DeleteCategorieMutation(DjangoDeleteMutation):
         model = models.Categorie
 
 
-## Tague
+## Tag
 class CreateTagMutation(DjangoCreateMutation):
     class Meta:
         model = models.Tag
@@ -161,16 +152,7 @@ class DeleteCommentaireMutation(DjangoDeleteMutation):
         model = models.Commentaire
 
 
-## ResponseCommentaire
-class CreateResponseCommentaireMutation(DjangoCreateMutation):
-    class Meta:
-        model = models.ResponseCommentaire
-        auto_context_fields = {
-            'user': 'user'
-        }
-        only_fields = ("message", 'comment')
-
-
+## User
 class CreateUserMutation(DjangoCreateMutation):
     class Meta:
         model = User
@@ -184,6 +166,9 @@ class CreateUserMutation(DjangoCreateMutation):
     def handle_password(cls, value, name, info) -> str:
         return make_password(value)
 
+class DeleteCommentaireMutation(DjangoDeleteMutation):
+    class Meta:
+        model = models.Commentaire
 
 class Query(graphene.ObjectType):
     Categorie = relay.Node.Field(CategorieNode)
