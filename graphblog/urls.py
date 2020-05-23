@@ -19,10 +19,12 @@ from django.conf import settings
 from django.conf.urls.static import static
 from filebrowser.sites import site
 
+from django.views.decorators.csrf import csrf_exempt
+from graphene_file_upload.django import FileUploadGraphQLView
+
 urlpatterns = [
     path('tinymce/', include('tinymce.urls')),
     path('admin/', admin.site.urls),
-    path('siteConfig/', include('siteConfig.urls')),
     path('admin/filebrowser/', site.urls),
 ]
 
