@@ -207,11 +207,9 @@ class Mutation(ObjectType):
     delete_categorie = DeleteCategorieMutation.Field()
 
     # Tag
-    create_tague = CreateTagueMutation.Field()
-    update_categorie = UpdateCategorieMutation.Field()
-    delete_categorie = DeleteCategorieMutation.Field()
-    create_tague = CreateTagueMutation.Field()
-    create_vue = CreateVueMutation.Field()
+    create_tag = CreateTagMutation.Field()
+    update_tag = UpdateTagMutation.Field()
+    delete_tag = DeleteTagMutation.Field()
 
     ## Commentaires
     create_commentaire = CreateCommentaireMutation.Field()
