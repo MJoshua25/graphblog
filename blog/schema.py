@@ -1,4 +1,5 @@
 from graphene import relay, ObjectType
+from django.contrib.auth.hashers import make_password
 from graphene_django import DjangoObjectType
 from graphene_django.filter import DjangoFilterConnectionField
 from graphene import Connection
@@ -145,6 +146,20 @@ class CreateResponseCommentaireMutation(DjangoCreateMutation):
             'user': 'user'
         }
         only_fields = ("message", 'comment')
+
+
+class CreateUserMutation(DjangoCreateMutation):
+    class Meta:
+        model = User
+        # many_to_one_extras = {
+        #     'profile': {
+        #         "add": {"type": "auto"},
+        #     }
+        # }
+
+    @classmethod
+    def handle_password(cls, value, name, info) -> str:
+        return make_password(value)
 
 
 class Query(graphene.ObjectType):
