@@ -26,6 +26,8 @@ urlpatterns = [
     path('tinymce/', include('tinymce.urls')),
     path('admin/', admin.site.urls),
     path('admin/filebrowser/', site.urls),
+
+    path('graphql', csrf_exempt(FileUploadGraphQLView.as_view(graphiql=True))),
 ]
 
 if settings.DEBUG:
