@@ -1,0 +1,37 @@
+Django==2.2.8
+django-admin-interface==0.12.0
+django-tinymce4-lite==1.7.5
+django-filebrowser-no-grappelli==3.7.8
+Pillow==6.2.1
+requests==2.22.0
+# django-allauth==0.41.0
+graphene-django==2.7.1
+django-filter==2.2.0
+psycopg2-binary==2.8.4
+
+# DRF
+djangorestframework==3.10.3
+drf_yasg
+drf-dynamic-fields==0.3.1
+djangorestframework-api-key==1.4.1
+
+
+moviepy==1.0.1
+#PyVimeo==1.0.11
+APScheduler==3.6.3
+django-notifications-hq==1.5.0
+django-relativedelta==1.1.0
+python-dateutil==2.8.1
+
+# graphene
+django-cors-headers==3.2.1
+graphene-django-cud==0.3.2
+graphene-file-upload==1.2.2
+django-graphql-jwt==0.3.0
+
+
+
+# AWS S3
+django-storages==1.8
+boto3==1.10.37
+filebrowser-safe==0.5.0
