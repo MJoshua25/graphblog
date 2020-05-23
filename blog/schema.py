@@ -143,16 +143,12 @@ class UpdateTagMutation(DjangoUpdateMutation):
 class CreateCommentaireMutation(DjangoCreateMutation):
     class Meta:
         model = models.Commentaire
-        auto_context_fields = {
-            'user': 'user'
-        }
-        only_fields = ("video", "message")
+        only_fields = ("article", "message")
 
 
 class UpdateCommentaireMutation(DjangoUpdateMutation):
     class Meta:
         model = models.Commentaire
-        only_fields = ("status")
 
 
 ## ResponseCommentaire
