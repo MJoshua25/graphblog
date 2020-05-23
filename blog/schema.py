@@ -89,8 +89,8 @@ class CommentaireNode(DjangoObjectType):
         # Allow for some more advanced filtering here
         fields = "__all__"
         filter_fields = {
-            'titre': ['exact', 'icontains', 'istartswith'],
-            'titre_slug': ['exact', 'icontains', 'istartswith'],
+            'user': ['exact'],
+            'user__username': ['exact', 'icontains', 'istartswith'],
             'article': ['exact'],
             'status': ['exact'],
         }
