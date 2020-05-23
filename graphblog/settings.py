@@ -25,7 +25,7 @@ SECRET_KEY = '4ojevv0$f9p^r)m6a1t&5h_1(%e#1a4du^1m6_)cm&_!)$edb4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,6 +37,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'django_filters',
+    'rest_framework_api_key',
+    'tinymce',
+    'filebrowser',
+
+    # graphene
+    'corsheaders',
+    'graphene_django',
+    'graphene_django_cud',
+    'graphene_file_upload',
 ]
 
 MIDDLEWARE = [
