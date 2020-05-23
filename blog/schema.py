@@ -151,6 +151,11 @@ class UpdateCommentaireMutation(DjangoUpdateMutation):
         model = models.Commentaire
 
 
+class DeleteCommentaireMutation(DjangoDeleteMutation):
+    class Meta:
+        model = models.Commentaire
+
+
 ## ResponseCommentaire
 class CreateResponseCommentaireMutation(DjangoCreateMutation):
     class Meta:
