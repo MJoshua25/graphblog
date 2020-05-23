@@ -47,7 +47,7 @@ class UserNode(DjangoObjectType):
         filter_fields = {
             'first_name': ['exact', 'icontains', 'istartswith'],
             'last_name': ['exact', 'icontains', 'istartswith'],
-            'username': ['exact'],
+            'username': ['exact', 'icontains', 'istartswith'],
         }
         interfaces = (relay.Node,)
         connection_class = ExtendConnection
