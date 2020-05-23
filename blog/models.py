@@ -89,9 +89,7 @@ class Article(models.Model):
 
 class Commentaire(models.Model):
     article = models.ForeignKey(Article, on_delete=models.CASCADE, related_name='commentaires')
-    nom = models.CharField(max_length=255, null=True, blank=True)
-    prenom = models.URLField(null=True, blank=True)
-    email = models.EmailField(null=True, blank=True)
+    user = models.ForeignKey(User, related_name='commentaires', on_delete=models.CASCADE)
     message = models.TextField()
 
     status = models.BooleanField(default=True)

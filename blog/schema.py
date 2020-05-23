@@ -83,14 +83,15 @@ class ArticleNode(DjangoObjectType):
         connection_class = ExtendConnection
 
 
-class TagNode(DjangoObjectType):
+class CommentaireNode(DjangoObjectType):
     class Meta:
-        model = models.Tag
+        model = models.Commentaire
         # Allow for some more advanced filtering here
         fields = "__all__"
         filter_fields = {
             'titre': ['exact', 'icontains', 'istartswith'],
             'titre_slug': ['exact', 'icontains', 'istartswith'],
+            'article': ['exact'],
             'status': ['exact'],
         }
         interfaces = (relay.Node,)
