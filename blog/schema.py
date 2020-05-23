@@ -123,6 +123,11 @@ class UpdateCategorieMutation(DjangoUpdateMutation):
         model = models.Categorie
 
 
+class DeleteCategorieMutation(DjangoDeleteMutation):
+    class Meta:
+        model = models.Categorie
+
+
 ## Tague
 class CreateTagMutation(DjangoCreateMutation):
     class Meta:
